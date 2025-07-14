@@ -1,3 +1,5 @@
+# Cost analysis going purely off of the CSV files
+
 import pandas as pd
 import glob
 import matplotlib.pyplot as plt

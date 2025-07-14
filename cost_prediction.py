@@ -1,3 +1,5 @@
+# Main function for analysing cost based off of input tokens and model
+
 MODEL_PRICING = {
     "gpt-4o-mini": {
         "input_per_1M": 0.15,
@@ -19,7 +21,7 @@ def calculate_cost(model, input_tokens, output_tokens, cache_tokens):
     if not prices:
         print("could not get prices for model: ", model)
         return None
-    
+     
     cost_input = (input_tokens / 1000000) * prices["input_per_1M"]
     cost_output = (output_tokens / 1000000) * prices["output_per_1M"]
     cost_cache = (cache_tokens / 1000000) * prices["cache_per_1M"]

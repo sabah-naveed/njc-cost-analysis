@@ -1,3 +1,6 @@
+# Cost analysis with admin key
+
+# update: not helpful because the only way you get cost data is blocked through API access #bigsad
 import requests
 import pandas as pd
 import numpy as np
