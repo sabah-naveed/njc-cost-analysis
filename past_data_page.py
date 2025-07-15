@@ -5,8 +5,28 @@ import plotly.graph_objects as go
 from datetime import datetime, date
 import numpy as np
 
-st.markdown("# Past Data Analysis 🕰️")
-st.sidebar.markdown("# Past Data Analysis 🕰️")
+st.markdown("# Past Data Analysis")
+
+with st.sidebar:
+    st.sidebar.markdown("# Past Data Analysis 🕰️")
+    st.markdown("---")
+    
+    # Information section in sidebar
+    st.markdown("### About This Dashboard")
+    st.markdown("""
+    This dashboard shows the past data for the Transit AI project.
+                
+    You can filter by data to show the total cost, input tokens, output tokens, and number of requests.
+                
+    """)
+    
+    st.markdown("### How to Use")
+    st.markdown("""
+    1. Select start and end dates. Note: data is only available from the beginning of 2025 to June 23, 2025 at this time. 
+    2. View the key statistics, cost trend, token usage trend, request trend over time, and model distribution.
+    """)
+    
+    
 
 # load data
 @st.cache_data
@@ -25,10 +45,8 @@ def load_data():
 df = load_data()
 
 if df is not None:
-    # Date range picker
     st.header("📅 Select Date Range")
     
-    # Get min and max dates from data
     min_date = df['start_time_iso'].min().date()
     max_date = df['end_time_iso'].max().date()
     
@@ -48,14 +66,14 @@ if df is not None:
             max_value=max_date
         )
     
-    # Filter data by date range
+    # filter by date
     mask = (df['start_time_iso'].dt.date >= start_date) & (df['end_time_iso'].dt.date <= end_date)
     filtered_df = df[mask].copy()
     
     if not filtered_df.empty:
         st.success(f"📊 Data loaded: {len(filtered_df)} records from {start_date} to {end_date}")
         
-        # Main statistics
+        # key stats
         st.header("📈 Key Statistics")
         
         col1, col2, col3, col4 = st.columns(4)

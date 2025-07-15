@@ -1,6 +1,6 @@
 import streamlit as st
 
-main_page = st.Page("app.py", title="Cost Calculator", icon="🧮")
+main_page = st.Page("cost_calculator_page.py", title="Cost Calculator", icon="🧮")
 page_2 = st.Page("past_data_page.py", title="Past Data", icon="🕰️")
 
 # nav setup 
