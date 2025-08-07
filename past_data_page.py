@@ -7,24 +7,7 @@ import numpy as np
 
 st.markdown("# Past Data Analysis")
 
-with st.sidebar:
-    st.sidebar.markdown("# Past Data Analysis 🕰️")
-    st.markdown("---")
-    
-    # Information section in sidebar
-    st.markdown("### About This Dashboard")
-    st.markdown("""
-    This dashboard shows the past data for the Transit AI project.
-                
-    You can filter by data to show the total cost, input tokens, output tokens, and number of requests.
-                
-    """)
-    
-    st.markdown("### How to Use")
-    st.markdown("""
-    1. Select start and end dates. Note: data is only available from the beginning of 2025 to June 23, 2025 at this time. 
-    2. View the key statistics, cost trend, token usage trend, request trend over time, and model distribution.
-    """)
+# Main content area
     
     
 

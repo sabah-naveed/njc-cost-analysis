@@ -7,57 +7,9 @@ from cost_prediction import calculate_cost, MODEL_PRICING, MODEL_PRICING_LINK
 import pandas as pd
 import numpy as np
 
-st.set_page_config(
-    page_title="OpenAI Cost Calculator",
-    page_icon="🧮",
-    layout="wide"
-)
+# Page configuration is handled in the main app
 
-# Sidebar
-with st.sidebar:
-    st.markdown("# Cost Calculator 🧮")
-    st.markdown("---")
-    
-    # Information section in sidebar
-    st.markdown("### About This Calculator")
-    st.markdown("""
-    This cost calculator helps you estimate the monthly cost of using OpenAI's API for the **Transit AI project**.
-    
-    **What it calculates:**
-    - **Model selection**: Choose from different OpenAI models (GPT-4o, GPT-4o-mini, etc.)
-    - **Usage parameters**: Number of users, maximum chats per user, and token usage
-    - **Token consumption**: Input and output tokens per chat interaction
-    
-    **Note**: Input tokens are typically much higher than output tokens due to context window and model instructions.
-    """)
-    
-    st.markdown("### How to Use")
-    st.markdown("""
-    1. Select your preferred OpenAI model
-    2. Enter your expected number of users and chats per user
-    3. Specify average token usage per chat
-    4. Click "Calculate cost" to see your estimated monthly expense
-    """)
-    
-    st.markdown("---")
-    st.markdown("### Model Pricing")
-    
-    # Create pricing table
-    pricing_data = []
-    for model, prices in MODEL_PRICING.items():
-        pricing_data.append({
-            "Model": model,
-            "Input ($/1M tokens)": f"${prices['input_per_1M']:.2f}",
-            "Output ($/1M tokens)": f"${prices['output_per_1M']:.2f}",
-            "Cache ($/1M tokens)": f"${prices['cache_per_1M']:.2f}"
-        })
-    
-    pricing_df = pd.DataFrame(pricing_data)
-    st.dataframe(pricing_df, use_container_width=True, hide_index=True)
-    
-    st.markdown("---")
-    st.markdown("### Resources")
-    st.markdown(f"📖 [OpenAI Pricing]({MODEL_PRICING_LINK})")
+# Main content area
 
 
 st.title("🧮 OpenAI Cost Calculator")
